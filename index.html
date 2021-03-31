@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf8">
+    <title>Mon Application Vue.js</title>
+</head>
+<body>
+<h1>Mon 1er Vue.js</h1>
+<div id="app">
+    <h1 ref="titre">{{ message }}</h1>
+
+    <button @click="rouge">Rouge</button>
+
+    <input type="text" v-model="age">
+
+    <p>Age : {{ agePlus }}</p>
+    <p>J'ai hâte de créer des applications incroyables !</p>
+    <button v-on:click="bonjour('toto')">Toto</button>
+
+    <button
+        v-if="age>20"
+        @click="bonjour('titi')"
+    >Titi</button>
+
+    <p v-else>Tu es trop jeune !</p>
+
+    <button
+        v-show="age>20"
+        @click="bonjour('tata')"
+    >tata</button>
+
+    <ul>
+        <li v-for="produit in courses">{{ produit }}</li>
+    </ul>
+
+    <ul>
+        <li v-for="(produit, position) in courses">{{ position }} - {{ produit }}</li>
+    </ul>
+
+    <a @click="rouge" v-bind:href="age + 100">test</a>
+    <a :href="agePlus">test</a>
+</div>
+<!-- Téléchargement de Vue.js-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<!-- Notre code JS -->
+<script src="main.js"></script>
+</body>
+</html>
